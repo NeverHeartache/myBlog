@@ -1,0 +1,33 @@
+html{
+	overflow-y: auto;
+	overflow-x: hidden; 
+}
+body{
+	background: url(../public/img/login/simple-codelines.svg),#F8F8F8;
+	margin: 0;
+	padding: 0;
+}
+.content-header{
+	margin:0;
+	padding:0;
+}
+.content-container{
+	width: 100%;
+	padding-top: 0px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.nav-space{
+	display: inline;
+	width: 982px;
+}
+.center-lay{
+	margin-top:11rem;
+	width: 35%;
+	height: 50%;
+	border-radius:15px;
+	background: url(../public/img/login/bg.png),#B4D5FB;
+}
+.card{
+	 margin-bottom: 0.7rem;
+}

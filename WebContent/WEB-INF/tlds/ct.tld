@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions sys</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>ct</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functionss</uri>
+
+	<tag>
+		<description>
+        获取Session属性
+    </description>
+		<name>session</name>
+		<tag-class>com.ai.trial.common.tag.SessionValueGetter</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+Session 属性的健
+        </description>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+
+</taglib>

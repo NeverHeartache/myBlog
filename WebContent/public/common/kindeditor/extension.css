@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.selected {
+	padding: 10px;
+	margin: 10px;
+}
+table, td, tr {
+	padding: 10px;
+	margin: 10px;
+}
