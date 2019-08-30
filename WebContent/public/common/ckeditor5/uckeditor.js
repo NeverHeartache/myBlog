@@ -1,6 +1,6 @@
 $(function(){
 	ClassicEditor.create( document.querySelector( '#editor' ), {
-//		 toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		 toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
 	} )
 	.then( editor => {
 		window.editor = editor;
