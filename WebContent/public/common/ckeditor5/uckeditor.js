@@ -1,6 +1,6 @@
 $(function(){
 	ClassicEditor.create( document.querySelector( '#editor' ), {
-		 toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+//		 toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
 	} )
 	.then( editor => {
 		window.editor = editor;
@@ -8,4 +8,5 @@ $(function(){
 	.catch( err => {
 		console.error( err.stack );
 	} );
+	$(".ck-content").css("heigth","700px!important");
 });

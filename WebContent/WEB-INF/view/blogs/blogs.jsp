@@ -15,6 +15,7 @@
 <%@include file="../frame/bFrame.jsp"%>
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
 <script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>
+<script src="https://kit.fontawesome.com/4d9fe48af3.js"></script>
 <style type="text/css">
 .bTitle {
 	display: inline-block;
@@ -34,7 +35,12 @@
 	width: 56rem !important;
 	margin-left: 22px;
 	height: auto;
-	margin-bottom: 22px;
+	margin-bottom: 8px;
+}
+.ck-content{
+	heigth: 700px !important;
+	display: block;
+	min-height: 700px;
 }
 </style>
 </head>
@@ -42,7 +48,10 @@
 	<%@include file="../frame/header.jsp"%>
 	<div class="container content-container">
 		<div class="row">
-			<div class="col-3" style="border-right: 2px solid #5d5d5d;">
+			
+		</div>
+		<div class="row">
+			<div class="col-3 cNav" style="border-right: 2px solid #5d5d5d;">
 				<div class="card"
 					style="width: 18rem; margin-left: 1rem; height: auto;">
 					<div class="card-header"
@@ -65,51 +74,25 @@
 					</ul>
 				</div>
 			</div>
-			
 			<div class="col-9">
-				<div class="row">
-					<input class="bTitle" name="article_title" placeholder="请输入标题">
-					
-					<div class="ck-editor-container">
-						<div id="editor" style="height: 700px;">
-							<h2>The three greatest things you learn from traveling</h2>
-
-							<p>Like all the great things on earth traveling teaches us by
-								example. Here are some of the most precious lessons I’ve learned
-								over the years of traveling.</p>
-
-							<h3>Appreciation of diversity</h3>
-
-							<p>
-								Getting used to an entirely different culture can be
-								challenging. While it’s also nice to learn about cultures online
-								or from books, nothing comes close to experiencing <a
-									href="https://en.wikipedia.org/wiki/Cultural_diversity">cultural
-									diversity</a> in person. You learn to appreciate each and every
-								single one of the differences while you become more culturally
-								fluid.
-							</p>
-
-							<figure class="image image-style-side">
-							<img src="${webRoot }/common/ckeditor5/sample/img/umbrellas.jpg"
-								alt="Three Monks walking on ancient temple."> <figcaption>Leaving
-							your comfort zone might lead you to such beautiful sceneries like
-							this one.</figcaption> </figure>
-
-							<h3>Confidence</h3>
-
-							<p>Going to a new place can be quite terrifying. While change
-								and uncertainty makes us scared, traveling teaches us how
-								ridiculous it is to be afraid of something before it happens.
-								The moment you face your fear and see there was nothing to be
-								afraid of, is the moment you discover bliss.</p>
-						</div>
-
-						<div id="references">
-
+				<form>
+					<div class="form-group row">						
+						<input class="bTitle" name="article_title" placeholder="请输入标题">
+					</div>
+					<div class="form-group row">
+						<div class="ck-editor-container">
+							<div id="editor" style="height: 700px;"></div>
+							<div id="references"></div>
 						</div>
 					</div>
-				</div>
+					
+					<div class="form-group row" style="padding-left: 22px;">
+						<label for="colFormLabelSm" class="col-sm-0 col-form-label col-form-label-sm">文章标签：</label>
+						<div class="col-sm-3">
+							
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

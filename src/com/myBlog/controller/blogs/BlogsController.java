@@ -18,8 +18,6 @@ public class BlogsController {
 	
 	private static final Log logger = LogFactory.getLog(BlogsController.class);
 	
-	@Autowired
-	SysUserService sysUserService;
 	
 	@RequestMapping(value="/blogs", method=RequestMethod.GET)
 	public String blogs( HttpServletRequest request,HttpServletResponse response){

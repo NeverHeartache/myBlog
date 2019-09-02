@@ -23,7 +23,7 @@ $(function(){
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class=" container content-container">
+	<div class="container_i content-container">
 		<div class="blogs-container">			
 			<div class="row">
 				<div class="col">
