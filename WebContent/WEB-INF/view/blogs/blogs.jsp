@@ -13,12 +13,13 @@
 <title>发布博客</title>
 <%@include file="../frame/resource.jsp"%>
 <%@include file="../frame/bFrame.jsp"%>
-<link rel="stylesheet" type="text/css"
-	href="${webRoot}/css/index/index.css">
+<link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
+<script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>
+<script src="https://kit.fontawesome.com/4d9fe48af3.js"></script>
 <style type="text/css">
 .bTitle {
 	display: inline-block;
-	width: 100%;
+	width: 56rem;
 	height: 40px;
 	line-height: 40px;
 	box-sizing: border-box;
@@ -30,9 +31,16 @@
 	color: #4d4d4d;
 }
 
-.ke-container.ke-container-simple {
+.ck-editor-container {
 	width: 56rem !important;
 	margin-left: 22px;
+	height: auto;
+	margin-bottom: 8px;
+}
+.ck-content{
+	heigth: 700px !important;
+	display: block;
+	min-height: 700px;
 }
 </style>
 </head>
@@ -40,184 +48,53 @@
 	<%@include file="../frame/header.jsp"%>
 	<div class="container content-container">
 		<div class="row">
-			<div class="col-8">
-				<div class="row">
-					<input class="bTitle" name="article_title" placeholder="请输入标题">			
-					<form method="post" action="" style="width: 100%; height: 100%; padding:0; ">
-						<textarea name="content1" cols="100" rows="20" style="width: 100%; height: 700px;">
-							<div>
-							    <img alt="" src="${webRoot }/common/kindeditor/plugins/emoticons/images/0.gif" />
-							    <div>
-							        123
-							    </div>
-							</div>
-						</textarea>
-					</form>
+			
+		</div>
+		<div class="row">
+			<div class="col-3 cNav" style="border-right: 2px solid #5d5d5d;">
+				<div class="card"
+					style="width: 18rem; margin-left: 1rem; height: auto;">
+					<div class="card-header"
+						style="text-align: center; font-weight: 600;">操作</div>
+					<ul class="list-group list-group-flush ">
+						<li class="list-group-item">
+							<button type="button" class="btn btn-outline-primary"
+								style="width: 95%;">发布博客</button>
+						</li>
+						<li class="list-group-item">
+							<button type="button" class="btn btn-outline-info"
+								style="width: 95%;">编辑博客</button>
+						</li>
+						<li class="list-group-item">
+							<button type="button" class="btn btn-outline-dark"
+								style="width: 95%;">删除博客</button>
+						</li>
+						<li class="list-group-item">
+						</li>
+					</ul>
 				</div>
 			</div>
-    		<div class="col-4">
-    			<div class=""></div>
-    		</div>
+			<div class="col-9">
+				<form>
+					<div class="form-group row">						
+						<input class="bTitle" name="article_title" placeholder="请输入标题">
+					</div>
+					<div class="form-group row">
+						<div class="ck-editor-container">
+							<div id="editor" style="height: 700px;"></div>
+							<div id="references"></div>
+						</div>
+					</div>
+					
+					<div class="form-group row" style="padding-left: 22px;">
+						<label for="colFormLabelSm" class="col-sm-0 col-form-label col-form-label-sm">文章标签：</label>
+						<div class="col-sm-3">
+							
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-	<script>
-		KindEditor.DEBUG = true;
-		KindEditor.options.filterMode = false;
-		KindEditor.options.autoHeightMode = true;
-		KindEditor.options.fixToolBar = true;
-		//document.domain = 'domain.com';
-		KindEditor.basePath = '${webRoot }/common/kindeditor/';
-		console.log(KindEditor.basePath);
-		KindEditor.ready(function(K) {
-			var editor1 = K.create('textarea[name=content1]', {
-				basePath : '${webRoot }/common/kindeditor/',
-				pluginsPath : '${webRoot }/common/kindeditor/plugins/',
-				urlType : 'absolute',
-				themeType : 'simple',
-				allowImageUpload : true,
-				allowImageRemote : true,
-				allowFileUpload : true,
-				designMode : true,
-				allowFileManager : true,
-				fullscreenMode : false,
-				formatUploadUrl : false,
-				fullscreenShortcut : false,
-				newlineTag : 'p',
-				pasteType : 1,
-				extraFileUploadParams : {
-					'testParam1' : 'a',
-					'testParam2' : 'b'
-				},
-				//afterTab : function() {
-				//editor2.focus();
-				//},
-				afterChange : function() {
-					K('#J_count1').html(this.count());
-					//console.log('1');
-				},
-				afterUpload : function(url, data, name) {
-					var select = K('#uploadFile')[0];
-					select.options.add(new Option(url, url));
-					console.log(data);
-					console.log(name);
-				},
-				afterSelectFile : function(url) {
-					var select = K('#uploadFile')[0];
-					select.options.add(new Option(url, url));
-				},
-				afterCreate : function() {
-					//this.loadPlugin('autoheight');
-				}
-			});
-			K('#create1').click(function(e) {
-				editor1.create();
-			});
-			K('#remove1').click(function(e) {
-				editor1.remove();
-			});
-			K('#getHtml1').click(function(e) {
-				alert(editor1.html());
-			});
-			K('#fullHtml1').click(function(e) {
-				alert(editor1.fullHtml());
-			});
-			K('#setHtml1').click(function(e) {
-				editor1.html(K('#insertHtml').val());
-			});
-			K('#empty1').click(function(e) {
-				editor1.html('');
-			});
-			K('#getText1').click(function(e) {
-				alert(editor1.text());
-			});
-			K('#setText1').click(function(e) {
-				editor1.text(K('#insertHtml').val());
-			});
-			K('#selectedHtml1').click(function(e) {
-				alert(editor1.selectedHtml());
-			});
-			K('#insertHtml1').click(function(e) {
-				editor1.insertHtml(K('#insertHtml').val());
-			});
-			K('#appendHtml1').click(function(e) {
-				editor1.appendHtml(K('#insertHtml').val());
-			});
-			K('#sync1').click(function(e) {
-				editor1.sync();
-				alert(K('textarea[name=content1]').val());
-			});
-			K('#focus1').click(function(e) {
-				editor1.focus();
-			});
-			K('#blur1').click(function(e) {
-				editor1.blur();
-			});
-			K('#readonly1').click(function(e) {
-				editor1.readonly();
-			});
-			K('#cancelReadonly1').click(function(e) {
-				editor1.readonly(false);
-			});
-			K('#isEmpty1').click(function(e) {
-				alert(editor1.isEmpty());
-			});
-			K('#isDirty1').click(function(e) {
-				alert(editor1.isDirty());
-			});
-			K('#loadPlugin1').click(function(e) {
-				editor1.loadPlugin('template', function() {
-
-				});
-				editor1.loadPlugin('template', function() {
-
-				});
-			});
-			var editor2 = K.create(K('textarea[name=content2]')
-					.get(), {
-				basePath : '${webRoot }/common/kindeditor/',
-				langType : 'en',
-				formatUploadUrl : false,
-				afterTab : function() {
-					K('#uploadFile')[0].focus();
-				},
-				afterCreate : function() {
-					//this.loadPlugin('autoheight');
-				}
-			});
-			K('#create2').click(function(e) {
-				editor2.create();
-
-			});
-			K('#remove2').click(function(e) {
-				editor2.remove();
-			});
-
-			var editor3 = K.editor({
-				basePath : '../',
-				themesPath : '../themes/',
-				pluginsPath : '../plugins/',
-				langPath : '../lang/',
-				allowFileManager : true
-			});
-			K('#image').click(
-					function() {
-						editor3.loadPlugin('image', function() {
-							editor3.plugin.imageDialog({
-								imageUrl : K('#url').val(),
-								clickFn : function(url, title,
-										width, height, border,
-										align) {
-									K('#url').val(url);
-									editor3.hideDialog();
-								}
-							});
-						});
-					});
-			K.create('textarea[name=content1]');
-			//K(window).bind('resize', function(e) {
-			//	editor1.resize(null, document.documentElement.clientHeight);
-			//});
-		});
-	</script>
 </body>
 </html>
