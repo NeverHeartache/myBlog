@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.myBlog.service.login.SysUserService;
 
 @Controller
-@RequestMapping(value="main")
+@RequestMapping(value="api/main")
 public class BlogsController {
 	
 	private static final Log logger = LogFactory.getLog(BlogsController.class);
 	
-	
 	@RequestMapping(value="/blogs", method=RequestMethod.GET)
 	public String blogs( HttpServletRequest request,HttpServletResponse response){
+		logger.info("我是贺磊测试中，，，");
+		return "home/main";
+	}
+	@RequestMapping(value="/releaseBlogs", method=RequestMethod.POST)
+	public String releaseBlogs(HttpServletRequest request,HttpServletResponse response){
 		logger.info("我是贺磊测试中，，，");
 		return "home/main";
 	}

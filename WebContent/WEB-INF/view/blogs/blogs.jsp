@@ -15,7 +15,7 @@
 <%@include file="../frame/bFrame.jsp"%>
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
 <script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>
-<script src="https://kit.fontawesome.com/4d9fe48af3.js"></script>
+<script type="text/javascript" src="${webRoot }/js/blogs/blogs.js"></script>
 <style type="text/css">
 .bTitle {
 	display: inline-block;
@@ -46,7 +46,7 @@
 </head>
 <body>
 	<%@include file="../frame/header.jsp"%>
-	<div class="container content-container">
+	<div class=" content-container" style="margin-top: 74px;">
 		<div class="row">
 			
 		</div>
@@ -58,15 +58,15 @@
 						style="text-align: center; font-weight: 600;">操作</div>
 					<ul class="list-group list-group-flush ">
 						<li class="list-group-item">
-							<button type="button" class="btn btn-outline-primary"
+							<button id="releaseBlog" type="button" class="btn btn-outline-primary"
 								style="width: 95%;">发布博客</button>
 						</li>
 						<li class="list-group-item">
-							<button type="button" class="btn btn-outline-info"
+							<button id="editBlog" type="button" class="btn btn-outline-info"
 								style="width: 95%;">编辑博客</button>
 						</li>
 						<li class="list-group-item">
-							<button type="button" class="btn btn-outline-dark"
+							<button id="deleteBlog" type="button" class="btn btn-outline-dark"
 								style="width: 95%;">删除博客</button>
 						</li>
 						<li class="list-group-item">
@@ -75,8 +75,8 @@
 				</div>
 			</div>
 			<div class="col-9">
-				<form>
-					<div class="form-group row">						
+				<form name="blog-content" action="${webRoot }/api/main/releaseBlogs">
+					<div class="form-group row">
 						<input class="bTitle" name="article_title" placeholder="请输入标题">
 					</div>
 					<div class="form-group row">
