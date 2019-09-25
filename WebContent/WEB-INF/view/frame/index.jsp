@@ -17,7 +17,7 @@
 <script type="text/javascript">
 var appInfo = "${webRoot}";
 $(function(){
-	
+
 });
 </script>
 </head>

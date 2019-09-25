@@ -30,7 +30,7 @@ $(function(){
 	<%@include file="../frame/header.jsp" %>
 	<div class="content-container">
 		<div class="container-fluid border border-primary center-lay">
-			<form action="${webRoot }/api/login" method="post">
+			<form method="post">
 				<div class="form-group">
 					<label for="exampleInputUserName">UserName</label> 
 					<input
@@ -49,7 +49,7 @@ $(function(){
 						out</label>
 				</div>
 				<div style="margin: 1rem;">
-					<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" id="loginBtn">Submit</button>
 				</div>
 				<div style="margin: 1rem;">
 					<button id="signIn" type="button" class="btn btn-success btn-lg btn-block">Sign In</button>

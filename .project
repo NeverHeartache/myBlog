@@ -3,6 +3,7 @@
 	<name>myBlog</name>
 	<comment></comment>
 	<projects>
+		<project>spring-web-4.0.0.RELEASE</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
