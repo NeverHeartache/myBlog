@@ -15,7 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.myBlog.entity.login.SysUser;
 import com.myBlog.service.login.SysUserService;
 import com.myBlog.util.Constant;
@@ -32,19 +34,22 @@ public class LoginController {
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String main(HttpServletRequest request, HttpServletResponse response){
+		
 		return "frame/index";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@ResponseBody
 	public String login(@RequestParam("loginName") String loginName, 
 						@RequestParam("passWord") String passWord,
 						HttpServletRequest request, 
 						HttpServletResponse response){
+		JSONObject res = new JSONObject();
 		if(StrUtil.isEmpty(loginName) || StrUtil.isEmpty(passWord)){
-			request.setAttribute("status", "0");
-			request.setAttribute("msg", "用户名或者密码不能为空！");
-			request.setAttribute("data", "");
-			return "login/login";
+			res.put("status", "0");
+			res.put("msg", "用户名或者密码不能为空！");
+			res.put("data", "");
+			return res.toString();
 		}
 		//通过用户名密码来查询登录人信息
 		SysUser user = sysUserService.queryUserByLoginName(loginName);
@@ -52,16 +57,23 @@ public class LoginController {
 		String userPwd = user.getUserPwd();
 		if(StrUtil.isNull(user)){
 			//
-			request.setAttribute("msg", "登录失败，请重新登录！");
-			return "login/login";
+			res.put("status", "0");
+			res.put("msg", "登录失败，请重新登录！");
+			res.put("data", "");
+			return res.toString();
 		}
 		if(userPwd.equals(passWord)){
 			SessionUtil.setValue(request, Constant.Sys_User, user);
-			return "home/main";
+			res.put("status", "1");
+			res.put("msg", "用户登录成功");
+			res.put("data", "");
 		} else {
-			request.setAttribute("msg", "用户名或密码错误，请重新登录！");
-			return "login/login";
+			res.put("msg", "用户名或密码错误，请重新登录！");
+			res.put("status", "0");
+			res.put("data", "");
 		}
+		System.out.println(res.toString());
+		return res.toString();
 	}
 	
 	@RequestMapping(value="/userLoginPage", method=RequestMethod.GET)

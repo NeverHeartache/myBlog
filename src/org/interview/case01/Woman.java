@@ -1,7 +1,7 @@
 package org.interview.case01;
 
 public class Woman extends Person {
-
+	
 	@Override
 	public void sex() {
 		// TODO Auto-generated method stub

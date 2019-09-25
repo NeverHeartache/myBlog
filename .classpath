@@ -35,7 +35,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-context-support-4.0.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.4.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.4.RELEASE-sources.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-core-4.0.4.RELEASE.jar" sourcepath="C:/Users/ADMINI~1/AppData/Local/Temp/.org.sf.feeling.decompiler1569375577438/source/spring-core-4.0.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-expression-4.0.4.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-expression-4.0.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-expression-4.0.4.RELEASE.jar"/>
@@ -90,5 +90,19 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mybatis-3.3.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mybatis-3.3.1-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mybatis-3.3.1.jar" sourcepath="C:/Users/dell/AppData/Local/Temp/.org.sf.feeling.decompiler1562776368611/source/mybatis-3.3.1-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-pool2-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-pool2-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-pool2-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-annotations-2.9.7-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-annotations-2.9.7-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-annotations-2.9.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mybatis-spring-1.2.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.mybatis.generator.core_1.3.2.201207161521.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.mybatis.generator.core.source_1.3.2.201207161521.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api-2.5-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

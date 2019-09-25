@@ -1,31 +1,58 @@
+//action="${webRoot }/api/main/releaseBlogs
+var article = {
+	articleId : "",
+	articleName : "",
+	articleTime : "",
+	articleIp : "",
+	articleClick : "",
+	sortArticleId : "",
+	userId : "",
+	typeId : "",
+	articleType : "",
+	articleContent : "",
+	articleUp : "",
+	articleSupport : ""
+};
+
 $(function(){
+	initUi();
 	initEvent();
 });
+function initUi(){
+	$(".ui.dropdown").dropdown();
+	$("#aLabel").css("padding-top", "calc(0.55rem + 1px)");//padding-top: calc(0.55rem + 1px);	
+}
 function initEvent(){
 	$("#releaseBlog").on("click",function(){
-		$("#releaseBlog").off("click");
-		$("form[name=blog-content]").submit();
-		$("#releaseBlog").on("click");
+		article.articleName = $("#articleName").val();
+		article.articleType = $("#articleType").val();
+		article.articleContent = getContent();
+		console.log(article);
+		debugger;
+		console.log($(article).serialize());
+		$.ajax({
+			url: appInfo+"/api/main/releaseBlogs",
+			type: "POST",
+			cache: false,
+			asnyc: false,
+			dataType: 'json',
+			contentType: "application/json;charset=utf-8",
+			data:  JSON.stringify(article),
+			beforeSend: function(){
+				
+			},
+			success: function(res){
+				console.log(res);
+			},
+			error: function(){
+				
+			}
+		});
 	});
 //	editor.model.document.on( 'change:data', () => {
 //	    console.log( 'The data has changed!' );
 //	} );
 }
-var gBlog = {
-	article_id : "",
-	article_name : "",
-	article_time : "",
-	article_ip : "",
-	article_click : "",
-	sort_article_id : "",
-	user_id : "",
-	type_id : "",
-	article_type : "",
-	article_content : "",
-	article_up : "",
-	article_support : "",
-	getContent: function(){
-		article_content = editor.getData();
-	},
-	
-};
+function getContent(){
+	return editor.getData();
+}

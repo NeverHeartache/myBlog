@@ -14,6 +14,9 @@
 <%@include file="../frame/resource.jsp"%>
 <%@include file="../frame/bFrame.jsp"%>
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
+<link rel="stylesheet" type="text/css" href="${webRoot}/css/semantic/semantic.min.css" >
+
+<script type="text/javascript" src="${webRoot}/js/common/semantic/semantic.min.js"></script>
 <script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>
 <script type="text/javascript" src="${webRoot }/js/blogs/blogs.js"></script>
 <style type="text/css">
@@ -43,7 +46,10 @@
 	min-height: 700px;
 }
 </style>
-</head>
+
+<script type="text/javascript">
+var appInfo = "${webRoot}";
+</script></head>
 <body>
 	<%@include file="../frame/header.jsp"%>
 	<div class=" content-container" style="margin-top: 74px;">
@@ -75,21 +81,28 @@
 				</div>
 			</div>
 			<div class="col-9">
-				<form name="blog-content" action="${webRoot }/api/main/releaseBlogs">
+				<form name="blog-content" class="needs-validation">
 					<div class="form-group row">
-						<input class="bTitle" name="article_title" placeholder="请输入标题">
+						<input class="form-control bTitle" id="articleName" name="articleName" placeholder="请输入标题">
+					</div>
+					<div class="form-group row" style="padding-left: 22px;">
+						<label for="colFormLabelSm" id="aLabel" class="col-sm-0 col-form-label col-form-label-sm">文章标签：</label>
+						<div class="col-sm-3">
+							<select class="ui dropdown selection" id="sortArticleId" name=sortArticleId style="">
+								<option value="">State</option>
+								<option value="1">科技</option>
+								<option value="2">艺术</option>
+								<option value="3">生活</option>
+								<option value="4">历史</option>
+								<option value="5">文学</option>
+								<option value="6">其他</option>
+							</select>
+						</div>
 					</div>
 					<div class="form-group row">
 						<div class="ck-editor-container">
-							<div id="editor" style="height: 700px;"></div>
-							<div id="references"></div>
-						</div>
-					</div>
-					
-					<div class="form-group row" style="padding-left: 22px;">
-						<label for="colFormLabelSm" class="col-sm-0 col-form-label col-form-label-sm">文章标签：</label>
-						<div class="col-sm-3">
-							
+							<div id="editor" name="articleContent" style="height: 700px;"></div>
+							<div id="references" ></div>
 						</div>
 					</div>
 				</form>
