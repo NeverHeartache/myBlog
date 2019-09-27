@@ -27,69 +27,16 @@ $(function(){
 		<div class="blogs-container">			
 			<div class="row">
 				<div class="col">
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
+					<c:forEach var="blog" items="${blogs }">
+						<div class="card" style="width: 45rem;">
+							<div class="card-body">
+								<a>
+									<h5 class="card-title">${blog.articleName }</h5>
+								</a>
+								<p class="card-text"></p>
+							</div>
 						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
-					<div class="card" style="width: 45rem;">
-						<div class="card-body">
-							<a>
-								<h5 class="card-title">Card title</h5>
-							</a>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@ package com.myBlog.controller.login;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.myBlog.entity.article.Article;
 import com.myBlog.entity.login.SysUser;
+import com.myBlog.service.article.ArticleService;
 import com.myBlog.service.login.SysUserService;
 import com.myBlog.util.Constant;
 import com.myBlog.util.SessionUtil;
@@ -31,10 +34,13 @@ public class LoginController {
 	private static final Log logger = LogFactory.getLog(LoginController.class);
 	@Autowired
 	SysUserService sysUserService = null;
+	@Autowired
+	ArticleService articleService;
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String main(HttpServletRequest request, HttpServletResponse response){
-		
+		List<Article> resList = articleService.queryBlogs(new Article());
+		request.setAttribute("blogs", resList);
 		return "frame/index";
 	}
 	

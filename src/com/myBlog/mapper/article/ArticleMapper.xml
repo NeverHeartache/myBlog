@@ -79,8 +79,12 @@
     article_content
   </sql>
   
-  <select id="queryAllBlogs" resultMap="ResultMapWithBLOBs">
-  	select * from article order by article_time DESC;
+  <select id="queryAllBlogs" parameterType="com.myBlog.entity.article.Article" resultMap="ResultMapWithBLOBs">
+  	select 
+		<include refid="Base_Column_List" />
+		,
+    <include refid="Blob_Column_List" />
+ 		from article order by article_time DESC;
   </select>  
   
   <select id="selectByExampleWithBLOBs" parameterType="com.myBlog.entity.article.ArticleExample" resultMap="ResultMapWithBLOBs">
