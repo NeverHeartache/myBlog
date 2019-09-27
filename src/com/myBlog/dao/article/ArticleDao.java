@@ -66,5 +66,5 @@ public interface ArticleDao {
 	 * 查询所有的博客
 	 * @return
 	 */
-	List<Article> queryAllBlogs();
+	List<Article> queryAllBlogs(Article record);
 }

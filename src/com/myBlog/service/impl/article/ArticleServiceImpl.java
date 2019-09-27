@@ -92,9 +92,9 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public List<Article> queryBlogs() {
-		List<Article> list = articleDao.queryAllBlogs();
-		return null;
+	public List<Article> queryBlogs(Article record) {
+		List<Article> list = articleDao.queryAllBlogs(record);
+		return list;
 	}
 	
 	

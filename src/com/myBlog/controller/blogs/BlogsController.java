@@ -1,5 +1,7 @@
 package com.myBlog.controller.blogs;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
@@ -77,11 +79,29 @@ public class BlogsController {
 	}
 	@RequestMapping(value="getBlogs", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Article> getAllBlogs(HttpServletRequest request,HttpServletResponse response){
-		List<Article> resList = articleService.queryBlogs();
+	public void getAllBlogs(HttpServletRequest request,HttpServletResponse response){
+		List<Article> resList = articleService.queryBlogs(new Article());
 		if(resList != null){
 			System.out.println(resList.size());
 		}
-		return resList;
+		response.setContentType("application/json");
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out= null;
+        try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        out.print(JSONObject.toJSONString(resList));
+        out.flush();
+        out.close();
 	}
+	
+//	public static void main(String[] args) {
+//		String r = "Some quick example text to build on the card title and make up the bulk of the card's content.";
+//		System.out.println(r.length());
+//	}
 }
