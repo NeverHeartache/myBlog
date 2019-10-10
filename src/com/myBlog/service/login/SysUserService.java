@@ -1,6 +1,9 @@
 package com.myBlog.service.login;
 
+import java.util.List;
+
 import com.myBlog.entity.login.SysUser;
+import com.myBlog.entity.login.SysUserExample;
 
 public interface SysUserService {
 	/**
@@ -25,4 +28,17 @@ public interface SysUserService {
 	 * @return
 	 */
 	public boolean queryWhetherUserExist(String loginName);
+	
+    int insert(SysUser record);
+
+    int insertSelective(SysUser record);
+
+    List<SysUser> selectByExample(SysUserExample example);
+
+    SysUser selectByPrimaryKey(String userId);
+
+    int updateByPrimaryKeySelective(SysUser record);
+
+    int updateByPrimaryKey(SysUser record);
+    
 }

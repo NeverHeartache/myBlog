@@ -30,10 +30,16 @@ $(function(){
 					<c:forEach var="blog" items="${blogs }">
 						<div class="card" style="width: 45rem;">
 							<div class="card-body">
-								<a>
-									<h5 class="card-title">${blog.articleName }</h5>
-								</a>
-								<p class="card-text"></p>
+								<div class="card-title">
+								<!-- /api/main/viewBlog/${blog.articleId } -->
+									<a href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
+										<h6>${blog.articleName }</h6>
+									</a>
+								</div>
+								<p class="card-text">
+									<a href="#" class="card-link">Card link</a>
+    							<a href="#" class="card-link">Another link</a>
+								</p>
 							</div>
 						</div>
 					</c:forEach>

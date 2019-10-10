@@ -70,7 +70,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public Article selectByPrimaryKey(String articleId) {
 		// TODO Auto-generated method stub
-		return null;
+		return articleDao.selectByPrimaryKey(articleId);
 	}
 
 	@Override

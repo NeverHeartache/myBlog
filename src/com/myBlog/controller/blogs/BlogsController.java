@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.myBlog.entity.article.Article;
 import com.myBlog.entity.login.SysUser;
 import com.myBlog.service.article.ArticleService;
+import com.myBlog.service.login.SysUserService;
 import com.myBlog.util.Constant;
 import com.myBlog.util.RequestUtil;
 import com.myBlog.util.ResultBean;
@@ -36,6 +37,8 @@ public class BlogsController {
 	private static final Log logger = LogFactory.getLog(BlogsController.class);
 	@Autowired(required=true)
 	ArticleService articleService;
+	@Autowired
+	SysUserService sysUserService;
 	/**
 	 * 跳转博客发布页面
 	 * @param request 
@@ -61,10 +64,9 @@ public class BlogsController {
 			System.out.println(JSONObject.toJSONString(article2));
 			
 			article2.setArticleIp(RequestUtil.getIpAddr(request));
-			SysUser user = (SysUser)SessionUtil.getValue(request, Constant.Sys_User);
+			SysUser user = (SysUser)new SessionUtil().getValue(request, Constant.Sys_User);
 			article2.setUserId(user.getUserId());
 			int res = articleService.addArticle(article2);
-			
 			rb.put("errCode", "1");
 			
 			rb.put("msg","发布博客成功！");
@@ -99,6 +101,30 @@ public class BlogsController {
         out.flush();
         out.close();
 	}
+	
+	@RequestMapping(value="viewBlog",method=RequestMethod.GET)
+	public String viewBlog(@RequestParam(required=true) String articleId
+			,HttpServletRequest request,HttpServletResponse response){
+		Article article = null;
+		SysUser su = null;
+		article = articleService.selectByPrimaryKey(articleId);
+		if(article != null){
+			request.setAttribute("article", article);
+			String userId = article.getUserId();
+			su = sysUserService.selectByPrimaryKey(userId);			
+		} else {
+			request.setAttribute("article", new Article());
+		}
+		
+		request.setAttribute("rwFlag", "view");
+		if(su != null){
+			request.setAttribute("userName", su.getUserName());			
+		}else {
+			request.setAttribute("userName", "");
+		}
+		return "blogs/blogDetail";
+	}
+	
 	
 //	public static void main(String[] args) {
 //		String r = "Some quick example text to build on the card title and make up the bulk of the card's content.";

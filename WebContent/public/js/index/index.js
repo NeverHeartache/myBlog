@@ -7,7 +7,7 @@ $(function(){
 	$("#loginPage").on("click",function(){
 		loginPage();
 	});
-	pageData.getBlogs();
+//	pageData.getBlogs();
 });
 //var pageData = {
 //	blogs: [],
