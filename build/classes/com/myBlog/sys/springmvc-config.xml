@@ -70,6 +70,7 @@
 	 		<mvc:exclude-mapping path="/api/signInPage"/>
 	 		<mvc:exclude-mapping path="/api/signIn"/>
 	 		<mvc:exclude-mapping path="/api/login"/>
+	 		<mvc:exclude-mapping path="/api/main/viewBlog"/>
 	 		<bean class="com.myBlog.sys.interceptor.loginInterceptor">
 	 		</bean>
 	 	</mvc:interceptor>

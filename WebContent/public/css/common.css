@@ -3,7 +3,7 @@ html{
 	overflow-x: hidden; 
 }
 body{
-	background: url(../public/img/login/simple-codelines.svg),#F8F8F8;
+	background: rgb(255, 255, 255);
 	margin: 0;
 	padding: 0;
 }

@@ -1,11 +1,14 @@
 package com.myBlog.service.impl.login;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.myBlog.dao.login.SysUserDao;
 import com.myBlog.entity.login.SysUser;
+import com.myBlog.entity.login.SysUserExample;
 import com.myBlog.service.login.SysUserService;
 import com.myBlog.util.StrUtil;
 
@@ -43,4 +46,35 @@ public class SysUserServiceImpl implements SysUserService {
 		}
 		return true;
 	}
+	@Override
+	public int insert(SysUser record) {
+
+		return 0;
+	}
+	@Override
+	public int insertSelective(SysUser record) {
+		
+		return 0;
+	}
+	@Override
+	public List<SysUser> selectByExample(SysUserExample example) {
+		
+		return null;
+	}
+	@Override
+	public SysUser selectByPrimaryKey(String userId) {
+		//
+		return sysUserDao.selectByPrimaryKey(userId);
+	}
+	@Override
+	public int updateByPrimaryKeySelective(SysUser record) {
+		
+		return 0;
+	}
+	@Override
+	public int updateByPrimaryKey(SysUser record) {
+		
+		return 0;
+	}
+	
 }

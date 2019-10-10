@@ -40,5 +40,11 @@ public class Orc extends Villain {
 		print(orc);
 		
 		print(orc.touch);
+		print();
+		print(Integer.MIN_VALUE);
+		print(Integer.MAX_VALUE);
+		System.out.printf("%c",97);
+		System.out.println("\n");
+		System.out.print(1<<16);
 	}
 }

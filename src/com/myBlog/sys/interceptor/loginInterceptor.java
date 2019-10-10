@@ -16,8 +16,8 @@ public class loginInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		SysUser su = (SysUser) SessionUtil.getValue(request, Constant.Sys_User);
-		System.out.println("interceptor: "+SessionUtil.getValue(request, Constant.Sys_User));
+		SysUser su = (SysUser)new SessionUtil().getValue(request, Constant.Sys_User);
+		System.out.println("interceptor: "+new SessionUtil().getValue(request, Constant.Sys_User));
 		if(StrUtil.isNull(su)){//如果是null，未登录
 			String path = request.getContextPath();
 			String homeUrl = request.getScheme() + "://"
