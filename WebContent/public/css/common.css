@@ -16,18 +16,8 @@ body{
 	padding-top: 0px;
 	padding-left: 0;
 	padding-right: 0;
+	margin: 74px 0 0 120px;
 }
-.nav-space{
-	display: inline;
-	width: 982px;
-}
-.center-lay{
-	margin-top:11rem;
-	width: 35%;
-	height: 50%;
-	border-radius:15px;
-	background: url(../public/img/login/bg.png),#B4D5FB;
-}
-.card{
-	 margin-bottom: 0.7rem;
+.ui.fixed.menu, .ui[class*="top fixed"].menu{
+	height: 49px;
 }
