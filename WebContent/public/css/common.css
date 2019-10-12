@@ -21,3 +21,6 @@ body{
 .ui.fixed.menu, .ui[class*="top fixed"].menu{
 	height: 49px;
 }
+.ui.items{
+	width: 100%;
+}

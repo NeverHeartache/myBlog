@@ -13,48 +13,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>个人博客</title>
 <%@include file="resource.jsp"%>
-<link rel="stylesheet" type="text/css"
-	href="${webRoot}/css/index/index.css">
-<script src="${webRoot}/js/index/index.js"></script>
+<link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
 <script type="text/javascript">
 	var appInfo = "${webRoot}";
-	$(function() {
-
-	});
 </script>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="header.jsp" %>
 	<div class="content-container">
 		<div class="ui grid">
 			<div class="row">
-				<div class="twelve wide column">
+				<div class="eleven wide column">
 					<div class="ui grid">
-						<c:forEach var="blog" items="${blogs }">
 							<div class="row">
 								<div class="ui divided items">
-									<div class="item">
-										<div class="content">
-											<a class="header"
-												href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
-												${blog.articleName } </a>
-											<div class="meta">
-												<span class="cinema">详细信息</span>
-											</div>
-											<div class="description">
-												<p>1</p>
-											</div>
-											<div class="extra">
-												<div class="ui tag label ">Limited</div>
+									<c:forEach var="blog" items="${blogs }">
+										<div class="item">
+											<div class="image" style="width: 24px; height: 24px;">
+									      <i class="comment large info circle icon"></i>
+									    </div>
+											<div class="content">
+												<a class="header"
+													href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
+													${blog.articleName } </a>
+												<div class="description">
+													<p>战争即和平，自由即奴役，无知即力量</p>
+												</div>
+												<div class="extra">
+													Additional Details
+												</div>
 											</div>
 										</div>
-									</div>
+									</c:forEach>
 								</div>
 							</div>
-						</c:forEach>
 					</div>
 				</div>
-				<div class="four wide column">
+				<div class="five wide column">
 					<div class="">
 						<div id="carouselExampleControls" class="carousel slide"
 							data-ride="carousel">
@@ -86,7 +81,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>
