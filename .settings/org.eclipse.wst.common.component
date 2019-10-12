@@ -5,7 +5,7 @@
         <dependent-module archiveName="spring-web-4.0.0.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-web-4.0.0.RELEASE/spring-web-4.0.0.RELEASE">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="myBlog"/>
         <property name="java-output-path" value="/myBlog/build/classes"/>
+        <property name="context-root" value="myBlog"/>
     </wb-module>
 </project-modules>

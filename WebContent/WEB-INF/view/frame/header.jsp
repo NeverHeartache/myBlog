@@ -5,7 +5,7 @@
 	<div class="ui fixed inverted menu">
 			<a class="item active" href="${webRoot }/">博客首页</a> 
 			<a class="item " href="${webRoot }/api/main/blogs">我的博客</a> 
-			<a class="item " href="${webRoot }/api/releaseBlogPage">发布博客</a>
+			<a class="item " href="${webRoot }/api/main/releaseBlogPage">发布博客</a>
 			<a class="item " href="${webRoot }/api/daily">我的日常</a> 
 			<a class="item " href="${webRoot }/api/demo/detail">示例</a>
 			<div class="right menu">

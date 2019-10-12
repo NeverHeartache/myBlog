@@ -125,6 +125,10 @@ public class BlogsController {
 		return "blogs/blogDetail";
 	}
 	
+	@RequestMapping(value="releaseBlogPage", method=RequestMethod.GET)
+	public String releaseBlogPage(HttpServletRequest request, HttpServletResponse response){
+		return "blogs/blogs";
+	}
 	
 //	public static void main(String[] args) {
 //		String r = "Some quick example text to build on the card title and make up the bulk of the card's content.";

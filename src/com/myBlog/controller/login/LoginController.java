@@ -217,9 +217,6 @@ public class LoginController {
 		response.sendRedirect(homeUrl);
 	}
 
-	@RequestMapping(value="releaseBlogPage", method=RequestMethod.GET)
-	public String releaseBlogPage(HttpServletRequest request, HttpServletResponse response){
-		return "blogs/blogs";
-	}
+	
 	
 }
