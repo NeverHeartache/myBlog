@@ -16,6 +16,38 @@
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
 <script type="text/javascript">
 	var appInfo = "${webRoot}";
+	$(function(){
+		//$('.shape').shape();
+		$('.ui.shape').shape();
+		//左
+		$('.ui.button.leftArrow').on("click",function(){
+			$('.ui.shape').shape('flip left');
+		});
+		//右
+		$('.ui.button.rightArrow').on("click",function(){
+			$('.ui.shape').shape('flip right');
+		});
+		//上
+		$('.ui.button.upArrow').on("click",function(){
+			$('.ui.shape').shape('flip up');
+		});
+		//下
+		$('.ui.button.downArrow').on("click",function(){
+			$('.ui.shape').shape('flip down');
+		});
+		
+		$('.ui.button.flipback').on("click",function(){
+			$('.ui.shape').shape('flip back');
+		});
+		
+		$('.ui.button.flipover').on("click",function(){
+			$('.ui.shape').shape('flip over');
+		});
+		
+		/* window.setInterval(function(){
+			$('.ui.shape').shape('flip right');
+		}, 2000); */
+	})
 </script>
 </head>
 <body>
@@ -23,7 +55,7 @@
 	<div class="content-container">
 		<div class="ui grid">
 			<div class="row">
-				<div class="eleven wide column">
+				<div class="ten wide column">
 					<div class="ui grid">
 							<div class="row">
 								<div class="ui divided items">
@@ -37,7 +69,7 @@
 													href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
 													${blog.articleName } </a>
 												<div class="description">
-													<p>战争即和平，自由即奴役，无知即力量</p>
+													<p>${blog.articleSummary }</p>
 												</div>
 												<div class="extra">
 													Additional Details
@@ -49,37 +81,76 @@
 							</div>
 					</div>
 				</div>
-				<div class="five wide column">
-					<div class="">
-						<div id="carouselExampleControls" class="carousel slide"
-							data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img class="d-block w-100"
-										src="${webRoot}/images/icons/111.png" alt="First slide">
+				
+				<div class="four wide column">
+					<div class="ui shape">
+					  <div class="sides">
+					    <div class="active  side">
+								<div class="ui card">
+									<a class="image" href="#"> 
+										<img src="${webRoot }/images/dog.png"></img>
+									</a>
+									<div class="content">
+										<a class="header" href="#">Steve Jobes</a>
+										<div class="meta">
+											<a>Last Seen 2 days ago</a>
+										</div>
+									</div>
 								</div>
-								<div class="carousel-item">
-									<img class="d-block w-100"
-										src="${webRoot}/images/icons/concat.png" alt="Second slide">
-								</div>
-								<div class="carousel-item">
-									<img class="d-block w-100"
-										src="${webRoot}/images/icons/technology.png" alt="Third slide">
-								</div>
-							</div>
-							<a class="carousel-control-prev" href="#carouselExampleControls"
-								role="button" data-slide="prev"> <span
-								class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-								class="sr-only">Previous</span>
-							</a> <a class="carousel-control-next" href="#carouselExampleControls"
-								role="button" data-slide="next"> <span
-								class="carousel-control-next-icon" aria-hidden="true"></span> <span
-								class="sr-only">Next</span>
-							</a>
+								<img src="${webRoot }/images/dog.png"></img>
+					    	<div class="content">
+					    		ertyuiodfghjcvbnm
+					    	</div>
+					    </div>
+					    <div class=" side">
+					      <img src="${webRoot }/images/cloud.jpg"></img>
+					      <div class="content">
+					      	ertyuiodfghjcvbnm
+					      </div>
+					    </div>
+					    <div class=" side">
+					      <img src="${webRoot }/images/moon.jpg"></img>
+					      <div class="content">
+					      	ertyuiodfghjcvbnm
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="ui ignored divider"></div>
+					<div class="ui ignored icon direction buttons">
+						<div class="ui button leftArrow" data-animation="flip" data-direction="left"
+							title="Flip Left">
+							<i class="left long arrow icon"></i>
+						</div>
+						<div class="ui button upArrow" data-animation="flip" data-direction="up"
+							title="Flip Up">
+							<i class="up long arrow icon"></i>
+						</div>
+						<div class="ui icon button downArrow" data-animation="flip"
+							data-direction="down" title="Flip Down">
+							<i class="down long arrow icon"></i>
+						</div>
+						<div class="ui icon button rightArrow" data-animation="flip"
+							data-direction="right" title="Flip Right">
+							<i class="right long arrow icon"></i>
+						</div>
+					</div>
+
+					<div class="ui ignored icon direction buttons">
+						<div class="ui button flipover" data-animation="flip" data-direction="over"
+							title="Flip Over">
+							<i class="retweet icon"></i>
+						</div>
+						<div class="ui button flipback" data-animation="flip" data-direction="back"
+							title="Flip Back">
+							<i class="flipped retweet icon"></i>
 						</div>
 					</div>
 				</div>
+				
 			</div>
+		
+				<div class="two wide column"></div>
 		</div>
 	</div>
 </body>
