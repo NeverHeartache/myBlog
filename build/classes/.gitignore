@@ -1,11 +1,15 @@
+/com/
 /concurrency/
 /enumerated/
+/generatorConfig.xml
 /holding/
 /inilization/
 /initialization/
+/jdbc.properties
+/log4j.properties
+/mybatis-config.xml
 /net/
 /operator/
 /org/
 /reusing/
 /typeinfo/
-/com/
