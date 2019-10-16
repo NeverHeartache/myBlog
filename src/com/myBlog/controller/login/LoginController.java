@@ -121,6 +121,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value="signInPage",method=RequestMethod.GET)
 	public String signInPage(HttpServletRequest request, HttpServletResponse response){
+		logger.info("注册页面");
 		return "register/register";
 	}
 	/**

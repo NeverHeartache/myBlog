@@ -29,8 +29,10 @@ $(function(){
 		});
 	});
 	$("#signIn").on("click",function(){
-		window.location.href = appInfo+ "/api/signInPage";
+		window.location.href = appInfo+ "/api/main";
+		//window.location.href = appInfo+"/api/signInPage";
 	});
+	$(".ui.checkbox.contract").checkbox();
 });
 var docCookies = {
 		getItem: function (sKey) {
