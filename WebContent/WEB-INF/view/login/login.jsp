@@ -15,7 +15,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户注册</title>
 <%@include file="../frame/resource.jsp" %>
-<script src="${webRoot}/js/login/login.js" type="text/javascript"></script>
 <script type="text/javascript">
 var appInfo = "${webRoot}";
 $(function(){
@@ -25,36 +24,50 @@ $(function(){
 	}
 });
 </script>
+<script src="${webRoot}/js/login/login.js" type="text/javascript"></script>
 </head>
-<body>
+<body  style="background-color: rgb(179, 223, 240);">
 	<%@include file="../frame/header.jsp" %>
 	<div class="content-container">
-		<div class="container-fluid border border-primary center-lay">
-			<form method="post">
-				<div class="form-group">
-					<label for="exampleInputUserName">UserName</label> 
-					<input
-						type="input" class="form-control" id="exampleInputUserName" name="loginName"
-						aria-describedby="emailHelp" placeholder="User Name">
+		<div class="ui grid">
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row">
+				<div class="two wide column"></div>
+				<div class="nine wide column">
+					<div class="ui segment">
+						<center>						
+							<h3>欢迎回来</h3>
+						</center>
+					</div>
+					<div class="ui segment">
+						<form class="ui form">
+								<div class="field">
+									<label>用户名：</label> 
+									<input id="exampleInputUserName" type="text" name="loginName" placeholder="用户名">
+								</div>
+								<div class="field">
+									<label>密码：</label> 
+									<input id="exampleInputPassword1" type="password" name="passWord" placeholder="密码">
+								</div>
+								<div class="field">
+									<div class="ui checkbox contract">
+										<input type="checkbox" tabindex="0" class="hidden"> 
+										<label>记住登陆用户名和密码</label>
+									</div>
+								</div>
+								<center>
+									<button id="loginBtn" class="ui primary button">登陆</button>
+									<button id="signIn" class="ui button">注册</button>
+								</center>
+						</form>
+					</div>
+					
 				</div>
-				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label> 
-					<input
-						type="password" class="form-control" id="exampleInputPassword1" name="passWord"
-						placeholder="Password">
-				</div>
-				<div class="form-group form-check" style="width: 50%;">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Check me
-						out</label>
-				</div>
-				<div style="margin: 1rem;">
-					<button type="button" class="btn btn-primary btn-lg btn-block" id="loginBtn">Submit</button>
-				</div>
-				<div style="margin: 1rem;">
-					<button id="signIn" type="button" class="btn btn-success btn-lg btn-block">Sign In</button>
-				</div>
-			</form>
+				<div class="five wide column"></div>
+			</div>
+			
 		</div>
 	</div>
 </body>

@@ -16,39 +16,8 @@
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
 <script type="text/javascript">
 	var appInfo = "${webRoot}";
-	$(function(){
-		//$('.shape').shape();
-		$('.ui.shape').shape();
-		//左
-		$('.ui.button.leftArrow').on("click",function(){
-			$('.ui.shape').shape('flip left');
-		});
-		//右
-		$('.ui.button.rightArrow').on("click",function(){
-			$('.ui.shape').shape('flip right');
-		});
-		//上
-		$('.ui.button.upArrow').on("click",function(){
-			$('.ui.shape').shape('flip up');
-		});
-		//下
-		$('.ui.button.downArrow').on("click",function(){
-			$('.ui.shape').shape('flip down');
-		});
-		
-		$('.ui.button.flipback').on("click",function(){
-			$('.ui.shape').shape('flip back');
-		});
-		
-		$('.ui.button.flipover').on("click",function(){
-			$('.ui.shape').shape('flip over');
-		});
-		
-		/* window.setInterval(function(){
-			$('.ui.shape').shape('flip right');
-		}, 2000); */
-	})
 </script>
+<script type="text/javascript" src="${webRoot}/js/frame/index.js"></script>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -78,7 +47,15 @@
 										</div>
 									</c:forEach>
 								</div>
-							</div>
+								<div class="ui pagination menu">
+									<div class="active item">1</div>
+									<div class="item">2</div>
+									<div class="item">3</div>
+									<div class="item">4</div>
+									<div class="item">...</div>
+									<div class="item">100</div>
+								</div>
+						</div>
 					</div>
 				</div>
 				
@@ -97,23 +74,33 @@
 										</div>
 									</div>
 								</div>
-								<img src="${webRoot }/images/dog.png"></img>
-					    	<div class="content">
-					    		ertyuiodfghjcvbnm
-					    	</div>
-					    </div>
-					    <div class=" side">
-					      <img src="${webRoot }/images/cloud.jpg"></img>
-					      <div class="content">
-					      	ertyuiodfghjcvbnm
-					      </div>
-					    </div>
-					    <div class=" side">
-					      <img src="${webRoot }/images/moon.jpg"></img>
-					      <div class="content">
-					      	ertyuiodfghjcvbnm
-					      </div>
-					    </div>
+							</div>
+							<div class="side">
+								<div class="ui card">
+									<a class="image" href="#"> 
+										<img src="${webRoot }/images/cloud.jpg"></img>
+									</a>
+									<div class="content">
+										<a class="header" href="#">Steve Jobes</a>
+										<div class="meta">
+											<a>Last Seen 2 days ago</a>
+										</div>
+									</div>
+								</div>
+							</div>
+					  	<div class="side">
+					  		<div class="ui card">
+									<a class="image" href="#"> 
+										<img src="${webRoot }/images/plant.jpg"></img>
+									</a>
+									<div class="content">
+										<a class="header" href="#">Steve Jobes</a>
+										<div class="meta">
+											<a>Last Seen 2 days ago</a>
+										</div>
+									</div>
+								</div>
+					  	</div>
 					  </div>
 					</div>
 					<div class="ui ignored divider"></div>
