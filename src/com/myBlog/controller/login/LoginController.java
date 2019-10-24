@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,7 +61,7 @@ public class LoginController {
 		//通过用户名密码来查询登录人信息
 		SysUser user = sysUserService.queryUserByLoginName(loginName);
 		logger.info(user);
-		String userPwd = user.getUserPwd();
+		
 		if(StrUtil.isNull(user)){
 			//
 			res.put("status", "0");
@@ -68,6 +69,7 @@ public class LoginController {
 			res.put("data", "");
 			return res.toString();
 		}
+		String userPwd = user.getUserPwd();
 		if(userPwd.equals(passWord)){
 			SessionUtil.setValue(request, Constant.Sys_User, user);
 			res.put("status", "1");
@@ -125,7 +127,7 @@ public class LoginController {
 		return "register/register";
 	}
 	/**
-	 * 用户登录
+	 * 用户注册
 	 * @param loginName
 	 * @param passWord
 	 * @param userPhone
@@ -135,23 +137,29 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value="/signIn", method=RequestMethod.POST)
+	@ResponseBody
 	public String signIn(@RequestParam("loginName") String loginName, 
 						@RequestParam("passWord") String passWord,
 						@RequestParam("userPhone") String userPhone,
 						@RequestParam("userSex") String userSex,
 						HttpServletRequest request, 
 						HttpServletResponse response){
+		JSONObject resJson = new JSONObject();
 		if(StrUtil.isEmpty(loginName) || StrUtil.isEmpty(passWord) || 
 					StrUtil.isEmpty(userPhone) || StrUtil.isEmpty(userSex)){
-			request.setAttribute("msg", "请填写所有内容！");
-			return "register/register";
+			resJson.put("msg", "请填写所有内容！");
+			resJson.put("errorCode", "0");
+			resJson.put("data", "");
+			return resJson.toString();
 		}
 		boolean isExistUser = false;
 		isExistUser = sysUserService.queryWhetherUserExist(loginName);
 		if(isExistUser){
 //			已经存在该用户名，不允许重复用户名
-			request.setAttribute("msg", "该用户名已经存在，请重新注册！");
-			return "register/register";
+			resJson.put("errorCode", "0");
+			resJson.put("data", "");
+			resJson.put("msg", "该用户名已经存在，请重新注册！");
+			return resJson.toString();
 		}
 		SysUser sysUser = new SysUser();
 		sysUser.setUserName(loginName);
@@ -174,9 +182,15 @@ public class LoginController {
 		if(res > 0){
 			//获取该登录用户信息 ，并存入session
 			SessionUtil.setValue(request, Constant.Sys_User, sysUser);
-			return "home/main";
+			resJson.put("errorCode", "1");
+			resJson.put("data", "");
+			resJson.put("msg", "恭喜，注册成功！");
+		} else {
+			resJson.put("errorCode", "");
+			resJson.put("data", "");
+			resJson.put("msg", "注册失败，请重新注册！");
 		}
-		return "register/register";
+		return resJson.toString();
 	}
 	/**
 	 * 获取用户登录IP

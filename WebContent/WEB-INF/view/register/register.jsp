@@ -15,15 +15,15 @@
 <%@include file="../frame/resource.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户注册</title>
+<script type="text/javascript" src="${webRoot }/js/register/register.js"></script>
 <script>
+	var appInfo = '${webRoot}';
 	var msg = "<%=msgStr%>";
 	$(function(){		
 		if(msg != ""){
 			alert(msg);
 		}
-		
 	});
-	
 </script>
 <style>
 body{
@@ -44,6 +44,7 @@ body{
 </head>
 <body  style="background-color: rgb(179, 223, 240);">
 	<%@include file="../frame/header.jsp" %>
+	<input id="hiddenField" name="" value="${msgStr }">
 	<div class="content-container">
 		<div class="ui grid">
 			<div class="row"></div>
@@ -87,7 +88,7 @@ body{
 						</div>
 						<div>
 							<center>
-								<button id="signUp" type="submit" class="ui primary button">立即注册</button>
+								<button id="signUp" class="ui primary button">立即注册</button>
 								<button class="ui button" id="backToLogin">返回登陆</button>
 							</center>
 						</div>
