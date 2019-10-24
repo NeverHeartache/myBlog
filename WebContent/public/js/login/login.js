@@ -1,39 +1,80 @@
 $(function(){
-	$("#loginBtn").on("click",function(){
-		var loginName = $("#exampleInputUserName").val();
-		var passWord = $("#exampleInputPassword1").val();
-		$.ajax({
-			url: appInfo+"/api/login",
-			type: "post",
-			async: false,
-			dataType: "json",
-			data: {
-				loginName: loginName,
-				passWord: passWord
-			},
-			success: function(res){
-				console.info(res);
-				if(res.status == "1"){
-					//设置cookie
-					var sExpires = 60*60*24*30;//一个月
-					docCookies.setItem("loginName", loginName, sExpires);
-					docCookies.setItem("passWord", passWord, sExpires);
-					window.location.href = appInfo+ "/api/main";
-				}else {
-					console.info(res.msg);
-				}
-			},
-			error: function(){
-				console.info("请求发生错误！");
-			}
-		});
-	});
-	$("#signIn").on("click",function(){
-		window.location.href = appInfo+ "/api/main";
-		//window.location.href = appInfo+"/api/signInPage";
-	});
-	$(".ui.checkbox.contract").checkbox();
+	loginPage.init();
 });
+var loginPage = {
+	pageEvent: function(){
+		$("#loginBtn").on("click",function(event){
+			event.preventDefault();
+			var loginName = $("#exampleInputUserName").val();
+			var passWord = $("#exampleInputPassword1").val();
+			var selectFlag = false;
+			selectFlag = $(".ui.checkbox.contract").checkbox("is checked");
+			console.info(selectFlag);
+			$.ajax({
+				url: appInfo+"/api/login",
+				type: "post",
+				async: false,
+				dataType: "json",
+				data: {
+					loginName: loginName,
+					passWord: passWord
+				},
+				success: function(res){
+					console.info(res);
+					if(res.status == "1"){
+						//设置cookie
+						var sExpires = 60*60*24*30;//一个月
+						docCookies.setItem("loginName", loginName, sExpires);
+						docCookies.setItem("passWord", passWord, sExpires);
+						if(selectFlag){
+							docCookies.setItem("selectFlag", true, sExpires);							
+						}else {
+							docCookies.setItem("selectFlag", false, -1);
+							docCookies.setItem("loginName", loginName, -1);
+							docCookies.setItem("passWord", passWord, -1);
+						}
+						
+						window.location.href = appInfo+ "/api/main";
+					}else {
+						console.info(res.msg);
+					}
+				},
+				error: function(){
+					console.info("请求发生错误！");
+				}
+			});
+			return false;//取消form的默认提交行为
+		});
+		$("#signIn").on("click",function(event){
+			event.preventDefault();
+			console.info(appInfo+ "/api/main");
+			window.location.href = appInfo+ "/api/signInPage";
+			return false;
+		});
+	},
+	pageUi: function(){
+		$(".ui.checkbox.contract").checkbox();
+		//加载上次cookie的用户信息
+		let userName = docCookies.getItem("loginName");
+		let passWord = docCookies.getItem("passWord");
+		let selectFlag = docCookies.getItem("selectFlag");
+		if(userName && userName != ""){
+			$("#exampleInputUserName").val(userName);
+		}
+		if(passWord && passWord != ""){
+			$("#exampleInputPassword1").val(passWord);
+		}
+		if(selectFlag && selectFlag == "true"){
+			$(".ui.checkbox.contract").checkbox("set checked");
+		} else {
+			$(".ui.checkbox.contract").checkbox("set unchecked");
+		}
+	},
+	init: function(){
+		this.pageUi();
+		this.pageEvent();
+	}
+};
 var docCookies = {
 		getItem: function (sKey) {
 			if (!sKey) { return null; }

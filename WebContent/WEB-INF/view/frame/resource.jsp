@@ -7,7 +7,7 @@
 
 <script src="${webRoot}/common/jquery-3.3.1.min.js"></script>
 <script src="${webRoot}/common/semantic/semantic.min.js"></script>
-<<script type="text/javascript">
+<script type="text/javascript">
 $(function(){
 	$(".browse.item.personalCenter").popup({
 		on: "click",
