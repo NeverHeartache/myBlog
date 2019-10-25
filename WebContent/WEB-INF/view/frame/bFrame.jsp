@@ -7,3 +7,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <link rel="stylesheet" href="${webRoot }/common/ckeditor5/sample/css/sample.css" />
 <script src="${webRoot }/common/ckeditor5/ckeditor.js"></script>
+<script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>

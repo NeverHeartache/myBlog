@@ -14,29 +14,15 @@
 <%@include file="../frame/resource.jsp"%>
 <%@include file="../frame/bFrame.jsp"%>
 <link rel="stylesheet" type="text/css" href="${webRoot}/css/index/index.css">
-<link rel="stylesheet" type="text/css" href="${webRoot}/css/semantic/semantic.min.css" >
 
-<script type="text/javascript" src="${webRoot}/js/common/semantic/semantic.min.js"></script>
-<script type="text/javascript" src="${webRoot }/common/ckeditor5/uckeditor.js"></script>
 <script type="text/javascript" src="${webRoot }/js/blogs/blogs.js"></script>
 <style type="text/css">
 .bTitle {
-	display: inline-block;
-	width: 56rem;
-	height: 40px;
-	line-height: 40px;
-	box-sizing: border-box;
-	padding-left: 16px;
-	border: none;
-	margin-left: 22px;
-	margin-bottom: 12px;
-	background-color: #efefef;
-	color: #4d4d4d;
+	max-width: 56rem;
 }
 
 .ck-editor-container {
 	width: 56rem !important;
-	margin-left: 22px;
 	height: auto;
 	margin-bottom: 8px;
 }
@@ -49,12 +35,53 @@
 
 <script type="text/javascript">
 var appInfo = "${webRoot}";
-</script></head>
+</script>
+</head>
 <body>
 	<%@include file="../frame/header.jsp"%>
-	<div class=" content-container" style="margin-top: 74px;">
-		<div class="row">
-			
+	<div class="content-container" style="">
+		<div class="ui grid">
+			<div class="row">
+				<div class="two wide column">
+					<div class="ui grid">
+						<div class="row">
+								<button class="fluid ui button">发布博客</button>
+						</div>
+						<div class="row">
+								<button class="fluid ui button">编辑博客</button>
+						</div>
+						<div class="row">
+								<button class="fluid ui button">删除博客</button>
+						</div>
+					</div>
+				</div>
+				<div class="twelve wide column">
+					<form name="blog-content" class="ui form">
+					<div class="field">
+						<input type="text" class="bTitle" id="articleName" name="articleName" placeholder="请输入标题">
+					</div>
+					<div class="inline field">
+						<label id="aLabel" class="">文章标签：</label>
+						<select class="ui dropdown selection" id="sortArticleId" name=sortArticleId style="">
+							<option value="">分类</option>
+							<option value="1">科技</option>
+							<option value="2">艺术</option>
+							<option value="3">生活</option>
+							<option value="4">历史</option>
+							<option value="5">文学</option>
+							<option value="6">其他</option>
+						</select>
+					</div>
+					<div class="field">
+						<div class="ck-editor-container">
+							<div id="editor" name="articleContent" style="height: 700px;"></div>
+							<div id="references" ></div>
+						</div>
+					</div>
+				</form>
+				</div>
+				<div class="two wide column"></div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-3 cNav" style="border-right: 2px solid #5d5d5d;">
@@ -81,31 +108,7 @@ var appInfo = "${webRoot}";
 				</div>
 			</div>
 			<div class="col-9">
-				<form name="blog-content" class="needs-validation">
-					<div class="form-group row">
-						<input class="form-control bTitle" id="articleName" name="articleName" placeholder="请输入标题">
-					</div>
-					<div class="form-group row" style="padding-left: 22px;">
-						<label for="colFormLabelSm" id="aLabel" class="col-sm-0 col-form-label col-form-label-sm">文章标签：</label>
-						<div class="col-sm-3">
-							<select class="ui dropdown selection" id="sortArticleId" name=sortArticleId style="">
-								<option value="">State</option>
-								<option value="1">科技</option>
-								<option value="2">艺术</option>
-								<option value="3">生活</option>
-								<option value="4">历史</option>
-								<option value="5">文学</option>
-								<option value="6">其他</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="ck-editor-container">
-							<div id="editor" name="articleContent" style="height: 700px;"></div>
-							<div id="references" ></div>
-						</div>
-					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>
