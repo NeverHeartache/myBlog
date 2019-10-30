@@ -43,6 +43,11 @@ function initEvent(){
 			},
 			success: function(res){
 				console.log(res);
+				if(res.status == "1"){
+					
+				} else {
+					
+				}
 			},
 			error: function(){
 				

@@ -14,5 +14,6 @@ $(function(){
 		position: "bottom left",
 		popup: '.ui.fluid.popup.settings'
 	});
+	
 })
 </script>

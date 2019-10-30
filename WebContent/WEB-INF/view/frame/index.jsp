@@ -26,35 +26,35 @@
 			<div class="row">
 				<div class="ten wide column">
 					<div class="ui grid">
-							<div class="row">
-								<div class="ui divided items">
-									<c:forEach var="blog" items="${blogs }">
-										<div class="item">
-											<div class="image" style="width: 24px; height: 24px;">
+						<div class="row">
+							<div class="ui divided items">
+								<c:forEach var="blog" items="${blogs }">
+									<div class="item">
+										<div class="image" style="width: 24px; height: 24px;">
 									      <i class="comment large info circle icon"></i>
 									    </div>
-											<div class="content">
-												<a class="header"
-													href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
-													${blog.articleName } </a>
-												<div class="description">
-													<p>${blog.articleSummary }</p>
-												</div>
-												<div class="extra">
-													Additional Details
-												</div>
+										<div class="content">
+											<a class="header"
+												href="${webRoot}/api/main/viewBlog?articleId=${blog.articleId }">
+												${blog.articleName } </a>
+											<div class="description">
+												<p>${blog.articleSummary }</p>
+											</div>
+											<div class="extra">
+												Additional Details
 											</div>
 										</div>
-									</c:forEach>
-								</div>
-								<div class="ui pagination menu">
-									<div class="active item">1</div>
-									<div class="item">2</div>
-									<div class="item">3</div>
-									<div class="item">4</div>
-									<div class="item">...</div>
-									<div class="item">100</div>
-								</div>
+									</div>
+								</c:forEach>
+							</div>
+							<div class="ui pagination menu">
+								<div class="active item">1</div>
+								<div class="item">2</div>
+								<div class="item">3</div>
+								<div class="item">4</div>
+								<div class="item">...</div>
+								<div class="item">100</div>
+							</div>
 						</div>
 					</div>
 				</div>

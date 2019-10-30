@@ -10,7 +10,7 @@ public class SessionUtil {
 	 * @param key
 	 * @return
 	 */
-	public Object getValue(HttpServletRequest request, String key){
+	public static Object getValue(HttpServletRequest request, String key){
 		return request.getSession().getAttribute(key);
 	}
 	/**

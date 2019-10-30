@@ -41,6 +41,10 @@ public class LoginController {
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String main(HttpServletRequest request, HttpServletResponse response){
 		List<Article> resList = articleService.queryBlogs(new Article());
+		SysUser su = (SysUser)SessionUtil.getValue(request, Constant.Sys_User);
+		if(su != null){
+			request.setAttribute(Constant.User_Name, su.getUserName());
+		}
 		request.setAttribute("blogs", resList);
 		return "frame/index";
 	}
