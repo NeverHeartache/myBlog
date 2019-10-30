@@ -13,6 +13,7 @@ import com.myBlog.util.StrUtil;
 
 public class loginInterceptor implements HandlerInterceptor {
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -24,17 +25,27 @@ public class loginInterceptor implements HandlerInterceptor {
 					+ request.getServerName() + ":" + request.getServerPort()
 					+ path + "/";
 			System.out.println(homeUrl);
+			request.setAttribute(Constant.User_Name, null);
 			response.sendRedirect(homeUrl);
 			return false;
 		} else {
+			request.setAttribute(Constant.User_Name, su.getUserName());
 			return true;
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		
+		SysUser su = (SysUser)new SessionUtil().getValue(request, Constant.Sys_User);
+		if(StrUtil.isNull(su)){
+//			modelAndView.addObject("User_Name", null);
+			request.setAttribute(Constant.User_Name, null);
+		} else {
+//			modelAndView.addObject("User_Name", su.getUserName());
+			request.setAttribute(Constant.User_Name, su.getUserName());
+		}
 	}
 
 	@Override

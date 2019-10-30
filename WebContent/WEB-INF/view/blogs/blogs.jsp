@@ -45,7 +45,7 @@ var appInfo = "${webRoot}";
 				<div class="two wide column">
 					<div class="ui grid">
 						<div class="row">
-								<button class="fluid ui button">发布博客</button>
+								<button class="fluid ui button" id="releaseBlog" >发布博客</button>
 						</div>
 						<div class="row">
 								<button class="fluid ui button">编辑博客</button>

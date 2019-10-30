@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<c:set var="User_Name" value="${User_Name }" ></c:set>
 <div class="content-header">
 	<div class="ui fixed inverted menu">
 			<a class="item active" href="${webRoot }/">博客首页</a> 
@@ -9,7 +10,16 @@
 			<a class="item " href="${webRoot }/api/daily">我的日常</a> 
 			<a class="item " href="${webRoot }/api/demo/detail">示例</a>
 			<div class="right menu">
-				<div class="browse item">
+			<a class="item"> 
+				<img src="${webRoot }/images/person.jpg" style="width: 24px; height: 24px;">
+				<c:if test="${User_Name ==null }">
+					你好，<span id="userSpan">请登录</span>
+				</c:if>
+				<c:if test="${User_Name  != null}">
+					你好，<span id="userSpan">${User_Name }</span>
+				</c:if>
+			</a>
+			<div class="browse item">
 					<a href="#" class="browse item personalCenter"> 
 						个人中心 
 						<i class="dropdown icon"></i>

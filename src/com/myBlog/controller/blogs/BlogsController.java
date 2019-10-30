@@ -29,7 +29,7 @@ import com.myBlog.util.RequestUtil;
 import com.myBlog.util.ResultBean;
 import com.myBlog.util.SessionUtil;
 import com.myBlog.util.StrUtil;
-
+import com.myBlog.util.Constant;
 @Controller
 @RequestMapping(value="api/main")
 public class BlogsController {
@@ -55,6 +55,7 @@ public class BlogsController {
 	 * @param response
 	 * @return
 	 */
+	@SuppressWarnings("static-access")
 	@RequestMapping(value="/releaseBlogs", method=RequestMethod.POST)
 	@ResponseBody
 	public String releaseBlogs(@RequestBody String article,HttpServletRequest request,HttpServletResponse response){
@@ -111,16 +112,16 @@ public class BlogsController {
 		if(article != null){
 			request.setAttribute("article", article);
 			String userId = article.getUserId();
-			su = sysUserService.selectByPrimaryKey(userId);			
+			su = sysUserService.selectByPrimaryKey(userId);
 		} else {
 			request.setAttribute("article", new Article());
 		}
 		
 		request.setAttribute("rwFlag", "view");
 		if(su != null){
-			request.setAttribute("userName", su.getUserName());			
+			request.setAttribute(Constant.User_Name, su.getUserName());
 		}else {
-			request.setAttribute("userName", "");
+			request.setAttribute("User_Name", null);
 		}
 		return "blogs/blogDetail";
 	}
