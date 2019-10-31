@@ -26,3 +26,9 @@
 	color: rgb(52, 58, 64);
 	font-size: 0.8rem;
 }
+.ui.items>.item>.content>.description>p{
+	width: 80%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

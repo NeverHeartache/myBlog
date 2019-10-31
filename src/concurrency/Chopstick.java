@@ -1,6 +1,6 @@
 //: concurrency/Chopstick.java
 // Chopsticks for dining philosophers.
-
+package concurrency;
 public class Chopstick {
   private boolean taken = false;
   public synchronized
