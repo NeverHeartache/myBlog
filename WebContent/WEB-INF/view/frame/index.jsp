@@ -62,7 +62,7 @@
 				<div class="four wide column">
 					<div class="ui shape">
 					  <div class="sides">
-					    <div class="active  side">
+					    <div class="active side">
 								<div class="ui card">
 									<a class="image" href="#"> 
 										<img src="${webRoot }/images/dog.png"></img>

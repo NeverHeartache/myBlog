@@ -1,6 +1,7 @@
 //: concurrency/AtomicEvenGenerator.java
 // Atomic classes are occasionally useful in regular code.
 // {RunByHand}
+package concurrency;
 import java.util.concurrent.atomic.*;
 
 public class AtomicEvenGenerator extends IntGenerator {

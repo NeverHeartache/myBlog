@@ -112,5 +112,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-databind-2.9.7-javadoc.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-databind-2.9.7-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jackson-databind-2.9.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jedis-2.9.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/pager-taglib-2.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
